@@ -1,5 +1,9 @@
 # Nunchuck
 
+> **Deprecation Notice**
+> This repository is being deprecated in favour of more focused skill repositories. The creation of this repository is what led to the first draft of the ASI (Agent Skills Interface) governance specification, the OASR (Open Agent Registry) CLI, and the AUx tools. While these skills were strong in spirit, **all of them will be reworked, improved and moved to dedicated repositories.**
+> I will leave this repository in the meantime since people seem to he using. I will update this notice with the new and improved skill repos as i develop them. Cheers! 
+
 A rigorously structured collection of agent skills designed to reduce drift, enforce determinism, and make agentic work auditable. Built on the [Open Agent-Skill Specification](https://github.com/JordanGunn/agent-skill-spec) and extended with internal specifications that define canonical structures, execution patterns, and epistemic guardrails.
 
 ---
