@@ -1,9 +1,7 @@
 ---
 name: sniff-bloaters
 license: MIT
-description: >
-  Detect bloaters smells (Long Method, Large Class, Long Parameter List) using
-  deterministic heuristics and append findings to `.sniff/findings.jsonl`.
+description: "Detects bloater code smells (Long Method, Large Class, Long Parameter List) using deterministic heuristics and appends findings to .sniff/findings.jsonl. Scans tracked files via git ls-files and regenerates index. Use when checking code quality, looking for code smells, reviewing method length, class size, or parameter list issues."
 metadata:
   author: Jordan Godau
   version: 0.1.0
@@ -25,8 +23,30 @@ metadata:
     - long-method
     - large-class
     - long-parameter-list
+    - code-quality
+    - refactor
 ---
 
 # INSTRUCTIONS
 
-1. Refer to `metadata.references`.
+## Quick Start
+
+1. **Validate**: `scripts/skill.sh validate` — checks prerequisites and environment
+2. **Scan**: `scripts/skill.sh scan` — scans tracked files for bloater smells
+
+## Outputs
+
+- `.sniff/findings.jsonl` — append-only findings ledger
+- `.sniff/index.json` — regenerated summary index
+- `.sniff/state.json` — regenerated scan state
+
+## Scope
+
+- Scans files deterministically via `git ls-files`
+- Detects Long Method, Large Class, and Long Parameter List smells
+- Does **not** refactor or fix — detection only
+- Findings are never deleted from the ledger
+
+## Detailed Reference
+
+Refer to `metadata.references` for triggers, constraints, failure modes, and the full procedure.
