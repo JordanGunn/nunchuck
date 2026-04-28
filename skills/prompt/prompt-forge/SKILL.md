@@ -1,9 +1,7 @@
 ---
 name: prompt-forge
 license: MIT
-description: >
-  Shape, refine, and stabilize human intent into a canonical prompt artifact.
-  Iteratively clarifies ambiguity until user confirms readiness.
+description: "Drafts, iterates, and finalizes prompts for LLMs. Collaboratively shapes user intent into a structured prompt artifact at .prompt/active.yaml, clarifying ambiguity until the user confirms readiness. Use when writing a prompt, doing prompt engineering, refining instructions, or crafting a system prompt."
 metadata:
   author: Jordan Godau
   version: 0.1.0
@@ -35,9 +33,28 @@ metadata:
     - clarify
     - intent
     - draft
+    - write
+    - engineer
+    - instructions
 ---
 
 # INSTRUCTIONS
 
-1. Refer to `metadata.references` for the complete skill definition.
-2. Use individual scripts: `forge.sh`, `validate.sh`, `help.sh`
+## Quick Start
+
+1. **Check state**: Run `./scripts/forge.sh` — creates `.prompt/active.yaml` if it does not exist, shows current status
+2. **Propose updates**: From conversation, propose changes to intent fields (objective, constraints, assumptions, open questions) and prompt text
+3. **Persist changes**: Edit `.prompt/active.yaml` with confirmed updates, then re-run `./scripts/forge.sh` to validate
+4. **Mark ready**: When user explicitly confirms, run `./scripts/forge.sh --mark-ready`
+5. **Handoff**: Stop after artifact is stable — subsequent actions happen in other skills
+
+## Scope
+
+- Maintains a single prompt artifact at `.prompt/active.yaml`
+- Acts as a collaborative editor — clarifies intent, persists to disk, does not execute prompts
+- All state changes are explicit and auditable
+
+## Detailed Reference
+
+Refer to `metadata.references` for contracts, triggers, failure modes, and the full procedure.
+Use scripts: `forge.sh` (state/validation), `validate.sh` (schema check), `help.sh` (usage info).
